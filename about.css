@@ -1,0 +1,284 @@
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&family=Fira+Code:wght@300..700&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Platypi:ital,wght@0,300..800;1,300..800&family=Rubik+Mono+One&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+
+body {
+    background-color: #1a1a1a;
+    color: white;
+    min-height: 100vh;
+    padding: 2rem;
+    position: relative;
+    overflow-x: hidden;
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    bottom: -200px;
+    left: -200px;
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(2, 129, 131, 0.6) 0%, rgba(255, 221, 0, 0) 70%);
+    filter: blur(80px);
+    z-index: -1;
+}
+
+body::after {
+    content: "";
+    position: fixed;
+    bottom: -50px;
+    left: -50px;
+    width: 250px;
+    height: 250px;
+    background-image: radial-gradient(rgba(24, 203, 209, 0.4) 1px, transparent 1px);
+    background-size: 15px 15px;
+    opacity: 0.8;
+    z-index: -1;
+}
+
+.top-right-glow {
+    position: fixed;
+    top: -200px;
+    right: -200px;
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(255, 221, 0, 0.6) 0%, rgba(255, 221, 0, 0) 70%);
+    filter: blur(80px);
+    z-index: -1;
+}
+
+.top-right-dots {
+    position: fixed;
+    top: -50px;
+    right: -50px;
+    width: 250px;
+    height: 250px;
+    background-image: radial-gradient(rgba(255, 221, 0, 0.4) 1px, transparent 1px);
+    background-size: 15px 15px;
+    opacity: 0.8;
+    z-index: -1;
+}
+
+.navbar {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(75, 75, 75, 0.9);
+    padding: 0.8rem 2rem;
+    border-radius: 50px;
+    backdrop-filter: blur(10px);
+    z-index: 1000;
+}
+
+.nav-icons {
+    display: flex;
+    gap: 2rem;
+}
+
+.nav-icons a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.2rem;
+    transition: color 0.3s ease;
+}
+
+.nav-icons a:hover {
+    color: #ffa500;
+}
+
+.about-section {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    height: auto;
+    width: 100%;
+    margin-top: 10vh;
+    margin-bottom: 20px;
+}
+
+.about-title-wrapper {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    width: 100%;
+}
+
+.about-title-bg {
+    position: absolute;
+    font-family: 'Rubik Mono One', monospace;
+    font-size: 9rem;
+    color: transparent;
+    -webkit-text-stroke: 1px white;
+    opacity: 0.2;
+    z-index: 1;
+    top: -3.3rem;
+}
+
+.about-title {
+    position: absolute;
+    font-family: 'Rubik Mono One', monospace;
+    font-size: 5rem;
+    color: white;
+    z-index: 2;
+    top: 0;
+}
+
+.main-text {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    width: 100%;
+    max-width: 1200px;
+    margin: 150px auto 50px;
+    padding: 0 20px;
+}
+
+.main-text .intro {
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 200;
+    position: relative;
+    font-size: 18px;
+    z-index: 2;
+    text-align: left;
+    width: 60%;
+    flex-shrink: 0;
+}
+
+.main-text .intro .location {
+    color: rgb(230, 161, 2);
+}
+
+.main-text .profile-img {
+    width: 35%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.main-text .profile-img img {
+    max-width: 100%;
+    height: auto;
+}
+
+.experience {
+    width: 100%;
+    max-width: 1200px;
+    margin: 10px auto;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 200;
+    padding: 0 20px;
+    overflow-x: hidden;
+}
+
+.experience .ex-title {
+    font-weight: 200;
+    font-size: 35px;
+    font-family: 'Rubik Mono One', sans-serif;
+    margin-bottom: 30px;
+    color: rgb(198, 193, 193);
+}
+
+.experience .ex-title p {
+    margin: 0;
+}
+
+.experience .job .title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.experience .job .title .name {
+    font-size: 24px;
+}
+
+.experience .job .title .title-left .degree {
+    font-size: 24px;
+    color: rgb(230, 161, 2);
+}
+
+.experience .job .title .title-left .branch {
+    font-size: 24px;
+}
+
+.experience .job .title .date {
+    align-items: end;
+    font-size: 19px;
+    color: rgb(168, 166, 166);
+}
+
+.experience .job .company {
+    font-size: 19px;
+    padding-bottom: 1%;
+    color: rgb(168, 166, 166);
+}
+
+.experience .job .description {
+    padding-left: 2%;
+    font-size: 16px;
+}
+
+.experience .job .description .important-words {
+    font-size: 16px;
+    color: rgb(230, 161, 2);
+    text-decoration: none;
+}
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: 15px;
+    margin-top: 30px;
+}
+
+.skill-card {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    padding: 12px;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.skill-card:hover {
+    transform: translateY(-2px);
+    background: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 0 15px rgba(255, 221, 0, 0.3);
+}
+
+.skill-icon {
+    font-size: 24px;
+    margin-bottom: 8px;
+    color: rgb(3, 200, 200);
+}
+
+.skill-card:hover .skill-icon {
+    color: rgb(255, 221, 0);
+}
+
+.skill-name {
+    font-size: 14px;
+    font-weight: 300;
+}
+
+@media (max-width: 768px) {
+    .main-text .intro,
+    .main-text .profile-img {
+        width: 100%;
+    }
+    
+    .about-title {
+        font-size: 3rem;
+    }
+    
+    .about-title-bg {
+        font-size: 5rem;
+    }
+}
