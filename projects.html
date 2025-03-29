@@ -6,15 +6,38 @@
     <title>Sharvin Joshi</title>
     <link rel="stylesheet" href="projects.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script>
+        const cursor = document.getElementById('custom-cursor');
+        document.addEventListener('mousemove', (e) => {
+            // Update cursor position
+            cursor.style.left = e.clientX + 'px';
+            cursor.style.top = e.clientY + 'px';
+
+            // Adjust opacity over text
+            const element = document.elementFromPoint(e.clientX, e.clientY);
+            if (element && (element.classList.contains('project-title') || element.classList.contains('project-description'))) {
+                cursor.style.opacity = '0.2';
+            } else {
+                cursor.style.opacity = '1';
+            }
+
+            // Parallax effect for background
+            const parallaxX = (e.clientX / window.innerWidth - 0.5) * 30;
+            const parallaxY = (e.clientY / window.innerHeight - 0.5) * 30;
+            document.body.style.setProperty('--parallax-x', `${parallaxX}px`);
+            document.body.style.setProperty('--parallax-y', `${parallaxY}px`);
+        });
+    </script>
 </head>
 <body>
+    <div id="custom-cursor"></div>
     <div class="top-right-glow"></div>
     <div class="top-right-dots"></div>
     <nav class="navbar">
         <div class="nav-icons">
-            <a href="/index.html"><i class="fa-solid fa-house"></i></a>
-            <a href="/about.html"><i class="fa-solid fa-user"></i></a>
-            <a href="/projects.html"><i class="fa-solid fa-briefcase"></i></a>
+            <a href="index.html"><i class="fa-solid fa-house"></i></a>
+            <a href="about.html"><i class="fa-solid fa-user"></i></a>
+            <a href="projects.html"><i class="fa-solid fa-briefcase"></i></a>
             <a href="#contact"><i class="fa-solid fa-phone"></i></a>
         </div>
     </nav>
