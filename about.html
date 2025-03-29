@@ -8,27 +8,29 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 <body>
+    <div class="cursor-dot"></div>
+    <div id="particles-js"></div>
+    <div class="scroll-progress"></div>
     <div class="top-right-glow"></div>
     <div class="top-right-dots"></div>
     <nav class="navbar">
         <div class="nav-icons">
-            <a href="/index.html"><i class="fa-solid fa-house"></i></a>
-            <a href="/about.html"><i class="fa-solid fa-user"></i></a>
-            <a href="/projects.html"><i class="fa-solid fa-briefcase"></i></a>
-            <a href="#contact"><i class="fa-solid fa-phone"></i></a>
+            <a href="index.html" title="Home"><i class="fa-solid fa-house"></i></a>
+            <a href="about.html" title="About"><i class="fa-solid fa-user"></i></a>
+            <a href="projects.html" title="Projects"><i class="fa-solid fa-briefcase"></i></a>
+            <a href="#contact" title="Contact"><i class="fa-solid fa-phone"></i></a>
         </div>
     </nav>
 
     <div class="about-section">
         <div class="about-title-wrapper">
-            <span class="about-title-bg">ABOUT</span>
-            <span class="about-title">ABOUT</span>
+            <span class="about-title-bg animate-on-scroll fade-in">ABOUT</span>
+            <span class="about-title animate-on-scroll fade-in">ABOUT</span>
         </div>
     </div>
 
-
     <div class="main-text">
-        <div class="intro">
+        <div class="intro animate-on-scroll slide-up">
             <p>
                 I'm an ambitious undergraduate developer with a keen focus on pushing the boundaries of AI and ML. I thrive 
                 on the challenge of building, whether it's crafting innovative projects or diving into any opportunity to create 
@@ -41,87 +43,63 @@
                 that dive into advanced ML concepts and ideas. When I’m not immersed in tech, I spend a lot of time gaming, 
                 listening to music, and getting lost in a good book. 
             </p>
-
             <br>
-            <div class="skills-grid">
-                <div class="skill-card">
-                    <div class="skill-icon">
-                        <i class="fab fa-js"></i>
+            <div class="skills-container">
+                <div class="skills-grid">
+                    <div class="skill-card animate-on-scroll fade-in">
+                        <div class="skill-icon"><i class="fab fa-js"></i></div>
+                        <div class="skill-name">JavaScript</div>
                     </div>
-                    <div class="skill-name">JavaScript</div>
-                </div>
-                <div class="skill-card">
-                    <div class="skill-icon">
-                        <i class="fab fa-react"></i>
+                    <div class="skill-card animate-on-scroll fade-in">
+                        <div class="skill-icon"><i class="fab fa-react"></i></div>
+                        <div class="skill-name">React</div>
                     </div>
-                    <div class="skill-name">React</div>
-                </div>
-                <div class="skill-card">
-                    <div class="skill-icon">
-                        <i class="fab fa-python"></i>
+                    <div class="skill-card animate-on-scroll fade-in">
+                        <div class="skill-icon"><i class="fab fa-python"></i></div>
+                        <div class="skill-name">Python</div>
                     </div>
-                    <div class="skill-name">Python</div>
-                </div>
-                <div class="skill-card">
-                    <div class="skill-icon">
-                        <i class="fab fa-html5"></i>
+                    <div class="skill-card animate-on-scroll fade-in">
+                        <div class="skill-icon"><i class="fab fa-html5"></i></div>
+                        <div class="skill-name">HTML5</div>
                     </div>
-                    <div class="skill-name">HTML5</div>
-                </div>
-                <div class="skill-card">
-                    <div class="skill-icon">
-                        <i class="fab fa-css3-alt"></i>
+                    <div class="skill-card animate-on-scroll fade-in">
+                        <div class="skill-icon"><i class="fab fa-css3-alt"></i></div>
+                        <div class="skill-name">CSS3</div>
                     </div>
-                    <div class="skill-name">CSS3</div>
-                </div>
-                <div class="skill-card">
-                    <div class="skill-icon">
-                        <i class="fab fa-node-js"></i>
+                    <div class="skill-card animate-on-scroll fade-in">
+                        <div class="skill-icon"><i class="fab fa-node-js"></i></div>
+                        <div class="skill-name">Node.js</div>
                     </div>
-                    <div class="skill-name">Node.js</div>
-                </div>
-                <div class="skill-card">
-                    <div class="skill-icon">
-                        <i class="fab fa-java"></i>
+                    <div class="skill-card animate-on-scroll fade-in">
+                        <div class="skill-icon"><i class="fab fa-java"></i></div>
+                        <div class="skill-name">Java</div>
                     </div>
-                    <div class="skill-name">Java</div>
-                </div>
-                <div class="skill-card">
-                    <div class="skill-icon">
-                        <i class="fab fa-node-js"></i>
+                    <div class="skill-card animate-on-scroll fade-in">
+                        <div class="skill-icon"><i class="fa-solid fa-brain"></i></div>
+                        <div class="skill-name">AI/ML</div>
                     </div>
-                    <div class="skill-name">Node.js</div>
-                </div>
-                <div class="skill-card">
-                    <div class="skill-icon">
-                        <i class="fa-solid fa-brain"></i>
+                    <div class="skill-card animate-on-scroll fade-in">
+                        <div class="skill-icon"><i class="fa-solid fa-eye"></i></div>
+                        <div class="skill-name">CV/NLP</div>
                     </div>
-                    <div class="skill-name">AI/ML</div>
-                </div>
-                <div class="skill-card">
-                    <div class="skill-icon">
-                        <i class="fa-solid fa-eye"></i>
-                    </div>
-                    <div class="skill-name">CV/NLP</div>
                 </div>
             </div>
         </div>
         <div class="profile-img">
-            <img src="/profile.png" alt="Profile Picture">
+            <img src="./profile.png" alt="Profile Picture" class="animate-on-scroll zoom-in">
+            <div class="info-box">Hello! I'm Sharvin, a passionate developer.</div>
         </div>
     </div>
 
     <div class="experience">
-        <div class="ex-title">
-            <p>
-                EDUCATION
-            </p>
+        <div class="ex-title animate-on-scroll fade-in">
+            <p>EDUCATION</p>
         </div>
-        <div class="job">
+        <div class="job animate-on-scroll slide-up">
             <div class="title">
                 <div class="title-left">
                     <a class="degree">B.Tech</a>
-                    <a class="brach">Computer Science Engineering (AI & ML)</a>
+                    <a class="branch">Computer Science Engineering (AI & ML)</a>
                 </div>
                 <a class="date">Aug 2023 - May 2027</a>
             </div>
@@ -132,19 +110,15 @@
                 <a>✦ <span class="important-words">CGPA: 8.64</span></a>
                 <br>
                 <a>✦ <span class="important-words">Relevant Coursework:</span> Machine Learning, Artificial Intelligence, Data Structures and Algorithms, Deep Learning, Computer Vision</a>
-                </div>
+            </div>
         </div>
-
-        <br>
     </div>
-
+    <br>
     <div class="experience">
-        <div class="ex-title">
-            <p>
-                Position of responsibility
-            </p>
+        <div class="ex-title animate-on-scroll fade-in">
+            <p>Position of Responsibility</p>
         </div>
-        <div class="job">
+        <div class="job animate-on-scroll slide-up">
             <div class="title">
                 <a class="name">WebMaster</a>
                 <a class="date">Jan 2025 - Present</a>
@@ -153,16 +127,14 @@
                 <a>IEEE RAS</a>
             </div>
             <div class="description">
-                <a>✦ Contributed to designing and implementation of 3d-models in <a href="https://www.rascade.in" style="text-decoration: none;"><span class="important-words">Rascade website</span></a>
+                <a>✦ Contributed to designing and implementation of 3d-models in <a href="https://www.rascade.in" style="text-decoration: none;"><span class="important-words">Rascade website</span></a></a>
                 <br>
                 <a>✦ Content creation for <span class="important-words"><i>DataDash 2.0</i></span> event which was used by participants for reference in and after the competition</a>
             </div>
         </div>
-
         <br>
         <hr>
-
-        <div class="job">
+        <div class="job animate-on-scroll slide-up">
             <div class="title">
                 <a class="name">Data Science Member</a>
                 <a class="date">Oct 2024 - Present</a>
@@ -171,10 +143,47 @@
                 <a>Google Developer Groups</a>
             </div>
             <div class="description">
-                <a>✦ Developed a <span class="important-words">security AI agent system</span> using the agentic AI hierarchy in collaboration with <a href="https://www.heliverse.com/" style="text-decoration: none;"><span class="important-words"> Heliverse Technologies</span></a>.</a>
+                <a>✦ Developed a <span class="important-words">security AI agent system</span> using the agentic AI hierarchy in collaboration with <a href="https://www.heliverse.com/" style="text-decoration: none;"><span class="important-words">Heliverse Technologies</span></a>.</a>
                 <br>
                 <a>✦ Built <a class="important-words" href="https://sites.google.com/view/tech-brewery-emotilligent/home?authuser=1">model to understand Human Activities</a> to detect illegal activities like kidnapping, stealing, violence, attack.</a>
             </div>
         </div>
+        <br>
+        <hr>
+        <div class="job animate-on-scroll slide-up">
+            <div class="title">
+                <a class="name">Rover Programming Member</a>
+                <a class="date">Apr 2024 - Present</a>
+            </div>
+            <div class="company">
+                <a>Technocrats robotics</a>
+            </div>
+            <div class="description">
+                <a>✦ Coordinated with a 6-member programming team for various competitions in computer vision and navigation tasks</a>
+                <br>
+                <a>✦ Contributed as a member in team-led events at TeamExpos and TechnoVIT</a>
+            </div>
+        </div>
+        <br>
+        <hr>
+        <div class="job animate-on-scroll slide-up">
+            <div class="title">
+                <a class="name">Management Member</a>
+                <a class="date">Oct 2023 - Nov 2023</a>
+            </div>
+            <div class="company">
+                <a>Marathi Literary Association (Swarajya)</a>
+            </div>
+            <div class="description">
+                <a>✦  Managed crowd handling, security, and design for the flagship<span class="important-words">Ganesh Chaturthi</span> event</a>
+                <br>
+                <a>✦  Contributed to the <span class="important-words">marketing</span> of various MLA events, increasing engagement and participation</a>
+            </div>
+        </div>
+        <br>
+        <hr>
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.12.0/tsparticles.bundle.min.js"></script>
+    <script src="aboutscript.js"></script>
 </body>
+</html>
