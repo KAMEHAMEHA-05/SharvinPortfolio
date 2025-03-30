@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sharvin Joshi</title>
+    <link rel="stylesheet" href="contact.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script>
+        const cursor = document.getElementById('custom-cursor');
+        document.addEventListener('mousemove', (e) => {
+            // Update cursor position
+            cursor.style.left = e.clientX + 'px';
+            cursor.style.top = e.clientY + 'px';
+
+            // Adjust opacity over text
+            const element = document.elementFromPoint(e.clientX, e.clientY);
+            if (element && (element.classList.contains('project-title') || element.classList.contains('project-description'))) {
+                cursor.style.opacity = '0.2';
+            } else {
+                cursor.style.opacity = '1';
+            }
+
+            // Parallax effect for background
+            const parallaxX = (e.clientX / window.innerWidth - 0.5) * 30;
+            const parallaxY = (e.clientY / window.innerHeight - 0.5) * 30;
+            document.body.style.setProperty('--parallax-x', `${parallaxX}px`);
+            document.body.style.setProperty('--parallax-y', `${parallaxY}px`);
+        });
+    </script>
+</head>
+<body>
+    <div id="custom-cursor"></div>
+    <div class="top-right-glow"></div>
+    <div class="top-right-dots"></div>
+    <nav class="navbar">
+        <div class="nav-icons">
+            <a href="/index.html"><i class="fa-solid fa-house"></i></a>
+            <a href="/about.html"><i class="fa-solid fa-user"></i></a>
+            <a href="/projects.html"><i class="fa-solid fa-briefcase"></i></a>
+            <a href="/contact.html"><i class="fa-solid fa-phone"></i></a>
+            <a href="#extracirc"><i class="fa-solid fa-icons"></i></i></a>
+        </div>
+    </nav>
+
+    <div class="about-section">
+        <div class="about-title-wrapper">
+            <span class="about-title-bg">CONTACT</span>
+            <span class="about-title">CONTACT</span>
+        </div>
+    </div>
+
+    <div class="contact-box" style="display: flex; gap: 20px; flex-direction: column; align-items: center; width: 60vw; height: 60vh; margin-top: 20vh;">
+        <!-- Credentials Section -->
+        <div class="cred-box" style="display: flex; gap: 20px; align-items: center; justify-content: center; width: 100%; height: 8%;">
+            <input type="text" id="name" placeholder="Name" style="width: 50%; height: 100%; border: 1px solid white; background: transparent; color: white; padding: 10px; font-size: 1rem;">
+            <input type="email" id="email" placeholder="Email" style="width: 50%; height: 100%; border: 1px solid white; background: transparent; color: white; padding: 10px; font-size: 1rem;">
+        </div>
+    
+        <!-- Message Box -->
+        <textarea id="message" placeholder="Message" style="width: 97.6%; height: 60%; border: 1px solid white; background: transparent; color: white; padding: 10px; font-size: 1rem; resize: none;"></textarea>
+    
+        <!-- Social Links + Submit -->
+        <div class="button-container" style="display: flex; gap: 20px; align-items: flex-end; justify-content: end; width: 100%; height: 10%;">
+            <div class="icon" style="width: 5%; height: 100%; border: 1px solid rgba(255, 255, 255, 0.505); display: flex; align-items: center; justify-content: center; border-radius: 15%;">
+                <a href="https://www.linkedin.com/in/sharvin-joshi-33a57b290/" target="_blank" style="color: white; text-decoration: none;"><i class="fab fa-linkedin"></i></a>
+            </div>
+            <div class="icon" style="width: 5%; height: 100%; border: 1px solid rgba(255, 255, 255, 0.505); display: flex; align-items: center; justify-content: center; border-radius: 15%;">
+                <a href="#twitter" target="_blank" style="color: white; text-decoration: none;"><i class="fab fa-x-twitter"></i></a>
+            </div>
+            <div class="icon" style="width: 5%; height: 100%; border: 1px solid rgba(255, 255, 255, 0.505); display: flex; align-items: center; justify-content: center; border-radius: 15%;">
+                <a href="https://github.com/Sharvin-1816" target="_blank" style="color: white; text-decoration: none;"><i class="fab fa-github"></i></a>
+            </div>
+    
+            <!-- Submit Button -->
+            <div class="submit" id="submitBtn" style="width: 20%; height: 100%; border: 1px solid white; display: flex; align-items: center; justify-content: center; font-family: 'Rubik Mono One', monospace; font-size: 1.7rem; cursor: pointer;">
+                SUBMIT
+            </div>
+        </div>
+    </div>    
+
+</body>
+<script>
+    document.getElementById('submitBtn').addEventListener('click', async () => {
+        const name = document.getElementById('name').value.trim();
+        const email = document.getElementById('email').value.trim();
+        const message = document.getElementById('message').value.trim();
+
+        if (!name || !email || !message) {
+            alert('Please fill in all fields.');
+            return;
+        }
+
+        const data = { name, email, message };
+
+        try {
+            const response = await fetch('http://localhost:3000/send-email', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(data)
+            });
+
+            if (response.ok) {
+                alert('Message sent successfully!');
+                document.getElementById('name').value = '';
+                document.getElementById('email').value = '';
+                document.getElementById('message').value = '';
+            } else {
+                alert('Failed to send message.');
+            }
+        } catch (error) {
+            console.error('Error:', error);
+            alert('An error occurred. Please try again.');
+        }
+    });
+</script>
+
+</html>

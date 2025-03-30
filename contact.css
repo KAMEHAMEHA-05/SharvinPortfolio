@@ -1,0 +1,149 @@
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&family=Fira+Code:wght@300..700&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Platypi:ital,wght@0,300..800;1,300..800&family=Rubik+Mono+One&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+
+body {
+    background-color: #1a1a1a;
+    color: white;
+    height: 100vh;
+    padding: 2rem;
+    position: relative;
+    overflow-x: hidden;
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-y: hidden;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    bottom: -200px;
+    left: -200px;
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(236, 64, 6, 0.6) 0%, rgba(255, 221, 0, 0) 70%);
+    filter: blur(80px);
+    z-index: -1;
+}
+
+body::after {
+    content: "";
+    position: fixed;
+    bottom: -50px;
+    left: -50px;
+    width: 250px;
+    height: 250px;
+    background-image: radial-gradient(rgba(242, 248, 248, 0.4) 1px, transparent 1px);
+    background-size: 15px 15px;
+    opacity: 0.8;
+    z-index: -1;
+}
+
+.top-right-glow {
+    position: fixed;
+    top: -200px;
+    right: -200px;
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(241, 157, 2, 0.6) 0%, rgba(255, 221, 0, 0) 70%);
+    filter: blur(80px);
+    z-index: -1;
+}
+
+.top-right-dots {
+    position: fixed;
+    top: -50px;
+    right: -50px;
+    width: 250px;
+    height: 250px;
+    background-image: radial-gradient(rgba(242, 248, 248, 0.4) 1px, transparent 1px);
+    background-size: 15px 15px;
+    opacity: 0.8;
+    z-index: -1;
+}
+
+.navbar {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(75, 75, 75, 0.9);
+    padding: 0.8rem 2rem;
+    border-radius: 50px;
+    backdrop-filter: blur(10px);
+    z-index: 1000;
+}
+
+.nav-icons {
+    display: flex;
+    gap: 2rem;
+}
+
+.nav-icons a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.2rem;
+    transition: color 0.3s ease;
+}
+
+.nav-icons a:hover {
+    color: #ffa500;
+}
+
+.about-section {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    height: auto;
+    width: 100%;
+    margin-top: 10vh;
+    margin-bottom: 20px;
+}
+
+.about-title-wrapper {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    width: 100%;
+}
+
+.about-title {
+    position: absolute;
+    font-family: 'Rubik Mono One', monospace;
+    font-size: 3.5rem;
+    color: white;
+    z-index: 2;
+    top: 0;
+}
+
+.about-title-bg {
+    position: absolute;
+    font-family: 'Rubik Mono One', monospace;
+    font-size: 9rem;
+    color: transparent;
+    -webkit-text-stroke: 1px white;
+    opacity: 0.2;
+    z-index: 1;
+    top: -3.3rem;
+}
+
+.icon a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.5rem;
+    transition: color 0.3s ease;
+}
+
+.icon:hover {
+    background-color: #ffa500;
+    color: #000;
+}
+
+.submit:hover {
+    background-color: #f7f6f4cf;
+    color: #121111;
+}
