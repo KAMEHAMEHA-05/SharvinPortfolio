@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sharvin Joshi</title>
+    <link rel="stylesheet" href="roverabh.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script>
+        const cursor = document.getElementById('custom-cursor');
+        document.addEventListener('mousemove', (e) => {
+            // Update cursor position
+            cursor.style.left = e.clientX + 'px';
+            cursor.style.top = e.clientY + 'px';
+
+            // Adjust opacity over text
+            const element = document.elementFromPoint(e.clientX, e.clientY);
+            if (element && (element.classList.contains('project-title') || element.classList.contains('project-description'))) {
+                cursor.style.opacity = '0.2';
+            } else {
+                cursor.style.opacity = '1';
+            }
+
+            // Parallax effect for background
+            const parallaxX = (e.clientX / window.innerWidth - 0.5) * 30;
+            const parallaxY = (e.clientY / window.innerHeight - 0.5) * 30;
+            document.body.style.setProperty('--parallax-x', `${parallaxX}px`);
+            document.body.style.setProperty('--parallax-y', `${parallaxY}px`);
+        });
+    </script>
+</head>
+<body>
+    <div id="custom-cursor"></div>
+    <div class="top-right-glow"></div>
+    <div class="top-right-dots"></div>
+    <nav class="navbar">
+        <div class="nav-icons">
+            <a href="/index.html"><i class="fa-solid fa-house"></i></a>
+            <a href="/about.html"><i class="fa-solid fa-user"></i></a>
+            <a href="/projects.html"><i class="fa-solid fa-briefcase"></i></a>
+            <a href="#contact"><i class="fa-solid fa-phone"></i></a>
+            <a href="#extracirc"><i class="fa-solid fa-icons"></i></i></a>
+        </div>
+    </nav>
+
+    <div class="about-section">
+        <div class="about-title-wrapper">
+            <!-- <span class="about-title-bg">PROJECTS</span> -->
+            <span class="about-title">Rover Abhimanyu</span>
+        </div>
+    </div>
+
+    <div class="grid-vert" style="
+        display: flex; 
+        gap: 20px; 
+        align-items: center; 
+        margin-top: 10vh;
+        justify-content: center; 
+        height: 80vh; 
+        width: 60vw;
+        position: fixed; 
+        top: 50%; 
+        left: 50%; 
+        transform: translate(-50%, -50%);
+    ">
+        <div class="img1" style="width: 40%; height: 60vh; border: 1px solid white;"></div>
+        
+        <div class="img2" style="width: 40%; height: 60vh; display: flex; flex-direction: column; gap: 20px; justify-content: center;">
+            <div class="img2-desc" style="width: 100%; height: 50%; border: 1px solid white;"></div>
+            <div class="img1-img" style="width: 100%; height: 50%; border: 1px solid white;"></div>
+        </div>
+    </div>
+
+
+
+
+</body>
+</html>
