@@ -19,7 +19,7 @@
             <a href="about.html" title="About"><i class="fa-solid fa-user"></i></a>
             <a href="projects.html" title="Projects"><i class="fa-solid fa-briefcase"></i></a>
             <a href="/contact.html"><i class="fa-solid fa-phone"></i></a>
-            <a href="#extracirc"><i class="fa-solid fa-icons"></i></i></a>
+            <a href="/extracirc.html"><i class="fa-solid fa-icons"></i></i></a>
         </div>
     </nav>
 
@@ -83,11 +83,16 @@
                         <div class="skill-icon"><i class="fa-solid fa-eye"></i></div>
                         <div class="skill-name">CV/NLP</div>
                     </div>
+                    <div class="skill-card animate-on-scroll fade-in">
+                        <div class="skill-icon"><i class="fa-solid fa-robot"></i></div>
+                        <div class="skill-name">ROS2/SAHI</div>
+                    </div>
                 </div>
             </div>
         </div>
         <div class="profile-img">
-            <img src="./profile.png" alt="Profile Picture" class="animate-on-scroll zoom-in">
+            <img src="./profile.png" alt="Profile Picture" class="fish-eye-image">
+            <div class="fish-eye-magnifier"></div>
             <div class="info-box">Hello! I'm Sharvin, a passionate developer.</div>
         </div>
     </div>
@@ -186,5 +191,46 @@
     </div>
     <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.12.0/tsparticles.bundle.min.js"></script>
     <script src="aboutscript.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const container = document.querySelector('.profile-img');
+            const image = document.querySelector('.fish-eye-image');
+            const magnifier = document.querySelector('.fish-eye-magnifier');
+            
+            // Preload the image to ensure it's ready for the effect
+            const img = new Image();
+            img.src = image.src;
+            
+            img.onload = function() {
+                // Set the background image for the magnifier
+                magnifier.style.backgroundImage = `url('${image.src}')`;
+                
+                container.addEventListener('mousemove', function(e) {
+                    const rect = container.getBoundingClientRect();
+                    const x = e.clientX - rect.left;
+                    const y = e.clientY - rect.top;
+                    
+                    // Update custom properties for positioning
+                    magnifier.style.setProperty('--x', `${x}px`);
+                    magnifier.style.setProperty('--y', `${y}px`);
+                    
+                    // Calculate the position for the background image
+                    const bgPosX = (x / rect.width) * 100;
+                    const bgPosY = (y / rect.height) * 100;
+                    
+                    // Apply the fish-eye effect through background scaling and positioning
+                    magnifier.style.backgroundPosition = `${bgPosX}% ${bgPosY}%`;
+                    magnifier.style.backgroundSize = '180%';
+                    
+                    // Apply additional distortion for the fish-eye effect
+                    magnifier.style.transform = `translate(calc(var(--x) - 60px), calc(var(--y) - 60px)) scale(1.2)`;
+                });
+                
+                container.addEventListener('mouseleave', function() {
+                    magnifier.style.opacity = '0';
+                });
+            };
+        });
+    </script>
 </body>
 </html>

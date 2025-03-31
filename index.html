@@ -9,18 +9,21 @@
     <script src="./indexscript.js"></script>
 </head>
 <body>
+    <div class="cursor"></div>
+    <div class="cursor-boundary"></div>
     <canvas id="particles-canvas"></canvas>
     <div class="top-right-glow"></div>
     <div class="top-right-dots"></div>
     <div class="top-right-glow"></div>
     <div class="top-right-dots"></div>
+    <div class="glow-trail"></div>
     <nav class="navbar">
         <div class="nav-icons">
             <a href="index.html"><i class="fa-solid fa-house"></i></a>
             <a href="about.html"><i class="fa-solid fa-user"></i></a>
             <a href="projects.html"><i class="fa-solid fa-briefcase"></i></a>
             <a href="/contact.html"><i class="fa-solid fa-phone"></i></a>
-            <a href="#extracirc"><i class="fa-solid fa-icons"></i></i></a>
+            <a href="/extracirc.html"><i class="fa-solid fa-icons"></i></i></a>
         </div>
     </nav>
 
@@ -104,4 +107,32 @@
         </div>
     </div>
 </body>
+<script>
+    const cursor = document.querySelector('.cursor');
+    const boundary = document.querySelector('.cursor-boundary');
+
+    // Update cursor position
+    document.addEventListener('mousemove', (e) => {
+        cursor.style.left = `${e.clientX}px`;
+        cursor.style.top = `${e.clientY}px`;
+
+        boundary.style.left = `${e.clientX - 10}px`;
+        boundary.style.top = `${e.clientY - 10}px`;
+    });
+
+    // Use event delegation to handle dynamic and nested clickable elements
+    document.addEventListener('mouseover', (e) => {
+        if (e.target.closest('.clickable') || e.target.hasAttribute('onclick')) {
+            boundary.classList.add('hovered');
+        }
+    });
+
+    document.addEventListener('mouseout', (e) => {
+        if (e.target.closest('.clickable') || e.target.hasAttribute('onclick')) {
+            boundary.classList.remove('hovered');
+        }
+    });
+
+</script>
+
 </html>

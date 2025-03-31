@@ -124,7 +124,7 @@ body::after {
     font-size: 5rem;
     color: white;
     z-index: 2;
-    top: 0;
+    top: -0.8rem;
 }
 
 .projects-grid {

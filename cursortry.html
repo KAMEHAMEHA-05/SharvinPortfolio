@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Custom Cursor</title>
+<style>
+    /* Basic Styling */
+    body {
+        margin: 0;
+        height: 100vh;
+        cursor: none; /* Hide the default cursor */
+        overflow: hidden;
+    }
+
+    /* The custom cursor */
+    .cursor {
+        position: fixed;
+        width: 20px;
+        height: 20px;
+        background: yellow;
+        border-radius: 50%;
+        pointer-events: none;
+        transition: transform 0.1s ease;
+        z-index: 9999;
+    }
+
+    /* The boundary circle */
+    .cursor-boundary {
+        position: fixed;
+        width: 40px;
+        height: 40px;
+        border: 2px solid yellow;
+        border-radius: 50%;
+        pointer-events: none;
+        opacity: 0;
+        z-index: 9998;
+        transition: opacity 0.2s, transform 0.2s;
+    }
+
+    /* Hover effect */
+    a, button, .clickable {
+        cursor: none; /* Hide default cursor */
+    }
+
+    a:hover, button:hover, .clickable:hover {
+        color: #555; /* Style change for clickable elements */
+    }
+
+    .hovered {
+        opacity: 1 !important; 
+        animation: circle-anim 1s infinite linear;
+    }
+
+    @keyframes circle-anim {
+        0% {
+            transform: scale(1) rotate(0deg);
+        }
+        100% {
+            transform: scale(1.2) rotate(360deg);
+        }
+    }
+</style>
+</head>
+<body>
+
+<a href="#" class="clickable" style="margin: 50px; display: inline-block; font-size: 20px;">Clickable Link</a>
+<button style="margin: 20px; padding: 10px 20px;">Clickable Button</button>
+
+<div class="cursor"></div>
+<div class="cursor-boundary"></div>
+
+<script>
+    const cursor = document.querySelector('.cursor');
+    const boundary = document.querySelector('.cursor-boundary');
+
+    // Update cursor position
+    document.addEventListener('mousemove', (e) => {
+        cursor.style.left = `${e.clientX}px`;
+        cursor.style.top = `${e.clientY}px`;
+
+        boundary.style.left = `${e.clientX - 10}px`;
+        boundary.style.top = `${e.clientY - 10}px`;
+    });
+
+    // Add hover effect
+    document.querySelectorAll('a, button, .clickable').forEach((el) => {
+        el.addEventListener('mouseenter', () => {
+            boundary.classList.add('hovered');
+        });
+
+        el.addEventListener('mouseleave', () => {
+            boundary.classList.remove('hovered');
+        });
+    });
+</script>
+
+</body>
+</html>

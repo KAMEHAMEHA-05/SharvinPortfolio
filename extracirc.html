@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sharvin Joshi</title>
+    <link rel="stylesheet" href="extracirc.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script>
+        const cursor = document.getElementById('custom-cursor');
+        document.addEventListener('mousemove', (e) => {
+            // Update cursor position
+            cursor.style.left = e.clientX + 'px';
+            cursor.style.top = e.clientY + 'px';
+
+            // Adjust opacity over text
+            const element = document.elementFromPoint(e.clientX, e.clientY);
+            if (element && (element.classList.contains('project-title') || element.classList.contains('project-description'))) {
+                cursor.style.opacity = '0.2';
+            } else {
+                cursor.style.opacity = '1';
+            }
+
+            // Parallax effect for background
+            const parallaxX = (e.clientX / window.innerWidth - 0.5) * 30;
+            const parallaxY = (e.clientY / window.innerHeight - 0.5) * 30;
+            document.body.style.setProperty('--parallax-x', `${parallaxX}px`);
+            document.body.style.setProperty('--parallax-y', `${parallaxY}px`);
+        });
+    </script>
+</head>
+<body>
+    <div id="custom-cursor"></div>
+    <div class="top-right-glow"></div>
+    <div class="top-right-dots"></div>
+    <nav class="navbar">
+        <div class="nav-icons">
+            <a href="/index.html"><i class="fa-solid fa-house"></i></a>
+            <a href="/about.html"><i class="fa-solid fa-user"></i></a>
+            <a href="/projects.html"><i class="fa-solid fa-briefcase"></i></a>
+            <a href="/contact.html"><i class="fa-solid fa-phone"></i></a>
+            <a href="/extracirc.html"><i class="fa-solid fa-icons"></i></i></a>
+        </div>
+    </nav>
+
+    <div class="about-section">
+        <div class="about-title-wrapper">
+            <!-- <span class="about-title-bg">CO-CURRICULAR</span> -->
+            <span class="about-title">EXTRA-CURRICULAR</span>
+        </div>
+    </div>
+
+    <div class="carousel-container">
+        <h1>Event Name</h1>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+    
+        <div class="carousel">
+            <div class="carousel-track">
+                <img src="/excs/sc1.png" alt="Image 1">
+                <img src="/excs/sc2.png" alt="Image 2">
+                <img src="/excs/sc3.png" alt="Image 3">
+                <img src="/excs/sc4.png" alt="Image 4">
+                <img src="/excs/sc5.png" alt="Image 5">
+                <!-- Clone first set of images for seamless loop -->
+                <img src="/excs/sc1.png" alt="Image 1">
+                <img src="/excs/sc2.png" alt="Image 2">
+                <img src="/excs/sc3.png" alt="Image 3">
+                <img src="/excs/sc4.png" alt="Image 4">
+                <img src="/excs/sc5.png" alt="Image 5">
+            </div>
+        </div>
+    </div>
+    <div class="carousel-container">
+        <h1>Event Name</h1>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+    
+        <div class="carousel">
+            <div class="carousel-track">
+                <img src="/excs/sc1.png" alt="Image 1">
+                <img src="/excs/sc2.png" alt="Image 2">
+                <img src="/excs/sc3.png" alt="Image 3">
+                <img src="/excs/sc4.png" alt="Image 4">
+                <img src="/excs/sc5.png" alt="Image 5">
+                <!-- Clone first set of images for seamless loop -->
+                <img src="/excs/sc1.png" alt="Image 1">
+                <img src="/excs/sc2.png" alt="Image 2">
+                <img src="/excs/sc3.png" alt="Image 3">
+                <img src="/excs/sc4.png" alt="Image 4">
+                <img src="/excs/sc5.png" alt="Image 5">
+            </div>
+        </div>
+    </div>
+    <div class="carousel-container">
+        <h1>Event Name</h1>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+    
+        <div class="carousel">
+            <div class="carousel-track">
+                <img src="/excs/sc1.png" alt="Image 1">
+                <img src="/excs/sc2.png" alt="Image 2">
+                <img src="/excs/sc3.png" alt="Image 3">
+                <img src="/excs/sc4.png" alt="Image 4">
+                <img src="/excs/sc5.png" alt="Image 5">
+                <!-- Clone first set of images for seamless loop -->
+                <img src="/excs/sc1.png" alt="Image 1">
+                <img src="/excs/sc2.png" alt="Image 2">
+                <img src="/excs/sc3.png" alt="Image 3">
+                <img src="/excs/sc4.png" alt="Image 4">
+                <img src="/excs/sc5.png" alt="Image 5">
+            </div>
+        </div>
+    </div>
+    
+</body>
+<script>
+    const tracks = document.querySelectorAll('.carousel-track');
+    
+    function updateImageWidths() {
+        tracks.forEach(track => {
+            const slides = track.querySelectorAll('img');
+            const imageWidth = slides[0].clientWidth;
+            track.style.width = `${imageWidth * (slides.length)}px`;
+        });
+    }
+
+    window.addEventListener('load', updateImageWidths);
+    window.addEventListener('resize', updateImageWidths);
+</script>
+</html>

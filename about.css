@@ -116,7 +116,7 @@ body::after {
     font-family: 'Rubik Mono One', monospace;
     font-size: 9rem;
     color: transparent;
-    -webkit-text-stroke: 1px white;
+    -webkit-text-stroke: 1px rgba(255, 255, 255, 0.2);
     opacity: 0.2;
     z-index: 1;
     top: -3.3rem;
@@ -128,7 +128,7 @@ body::after {
     font-size: 5rem;
     color: white;
     z-index: 2;
-    top: 0;
+    top: -0.8rem;
 }
 
 .main-text {
@@ -158,7 +158,7 @@ body::after {
     color: rgb(230, 161, 2);
 }
 
-.main-text .profile-img {
+/* .main-text .profile-img {
     width: 35%;
     display: flex;
     justify-content: center;
@@ -169,7 +169,7 @@ body::after {
 .main-text .profile-img img {
     max-width: 100%;
     height: auto;
-}
+} */
 
 .experience {
     width: 100%;
@@ -347,16 +347,102 @@ body::after {
     box-shadow: 0 0 15px rgba(255, 221, 0, 0.3);
 }
 
-.profile-img img {
+/* .profile-img img {
     max-width: 100%;
     height: auto;
     transition: all 0.3s ease;
+} */
+
+.profile-img {
+    position: relative;
+    width: 35%;
+    display: flex;
+    justify-content: start;
+    align-items: flex-start;
+    margin-top: 10px;
+    overflow: hidden;
 }
 
-.profile-img img:hover {
-    transform: scale(1.05);
-    box-shadow: 0 0 20px rgba(255, 221, 0, 0.3);
+.profile-img img {
+    max-width: 100%;
+    height: auto;
+    transition: transform 0.3s ease;
 }
+
+.bubble-effect {
+    --size: 150px;  /* Diameter of the magnifying bubble */
+    --zoom: 2;      /* Magnification level */
+    position: relative;
+    cursor: none;    /* Hide the cursor for a cleaner effect */
+}
+
+.bubble-effect::after {
+    content: "";
+    position: absolute;
+    width: var(--size);
+    height: var(--size);
+    border-radius: 50%;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+    pointer-events: none;
+    background: url('./profile.png') no-repeat;
+    background-size: calc(100% * var(--zoom));
+    transform: translate(-50%, -50%);
+    display: none;
+}
+
+
+.magnifier {
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+    pointer-events: none; 
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    transform: translate(-50%, -50%);
+    display: none;
+}
+
+.bubble-effect {
+    --zoom: 2;  /* Magnification level */
+    transition: transform 0.2s;
+}
+
+.fish-eye-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: none;
+    transition: filter 0.3s ease;
+}
+
+.fish-eye-magnifier {
+    --x: 0;
+    --y: 0;
+    position: absolute;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background-repeat: no-repeat;
+    pointer-events: none;
+    opacity: 0;
+    transform: translate(calc(var(--x) - 60px), calc(var(--y) - 60px));
+    transition: opacity 0.2s ease;
+    z-index: 2;
+    box-shadow: 0 0 10px rgba(0,0,0,0.3);
+}
+
+.fish-eye-container:hover .fish-eye-magnifier {
+    opacity: 1;
+}
+
+
+svg {
+    width: 0;
+    height: 0;
+}
+
 
 @import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&family=Fira+Code:wght@300..700&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Platypi:ital,wght@0,300..800;1,300..800&family=Rubik+Mono+One&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
 
