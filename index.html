@@ -16,7 +16,7 @@
     <div class="top-right-dots"></div>
     <div class="top-right-glow"></div>
     <div class="top-right-dots"></div>
-    <div class="glow-trail"></div>
+    <canvas id="fluidCanvas"></canvas>
     <nav class="navbar">
         <div class="nav-icons">
             <a href="index.html"><i class="fa-solid fa-house"></i></a>
@@ -108,30 +108,75 @@
     </div>
 </body>
 <script>
-    const cursor = document.querySelector('.cursor');
-    const boundary = document.querySelector('.cursor-boundary');
+    const canvas = document.getElementById('fluidCanvas');
+    const ctx = canvas.getContext('2d');
 
-    // Update cursor position
+    // Set the canvas size to fill the screen
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+
+    let trails = [];
+
+    // Fluid glow class
+    class GlowTrail {
+        constructor(x, y) {
+            this.x = x;
+            this.y = y;
+            this.size = 100; // Start with a large size
+            this.maxSize = 300;
+            this.opacity = 0.8;
+            this.color = 'rgba(255, 221, 0, 0.1)'; // Yellow color
+        }
+
+        update() {
+            // Shrink the size over time to simulate fading
+            this.size = Math.max(0, this.size - 2); 
+            this.opacity -= 0.005; // Decrease opacity
+        }
+
+        draw() {
+            // Draw the glow trail with a smooth gradient
+            const gradient = ctx.createRadialGradient(this.x, this.y, 0, this.x, this.y, this.size);
+            gradient.addColorStop(0, this.color);
+            gradient.addColorStop(1, 'rgba(255, 221, 0, 0)'); // Fading to transparent
+
+            ctx.beginPath();
+            ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+            ctx.fillStyle = gradient;
+            ctx.fill();
+            ctx.closePath();
+        }
+    }
+
+    // Add new fluid glow when mouse moves
+    function createGlow(x, y) {
+        trails.push(new GlowTrail(x, y));
+    }
+
+    // Main animation loop
+    function animate() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height); // Clear canvas for new frame
+
+        // Loop through all glow trails and update/draw them
+        trails.forEach((trail, index) => {
+            trail.update();
+            trail.draw();
+            
+            // Remove trail if it's completely faded
+            if (trail.opacity <= 0) {
+                trails.splice(index, 1);
+            }
+        });
+
+        requestAnimationFrame(animate);
+    }
+
+    // Event listener to create new fluid glow effect on mouse movement
     document.addEventListener('mousemove', (e) => {
-        cursor.style.left = `${e.clientX}px`;
-        cursor.style.top = `${e.clientY}px`;
-
-        boundary.style.left = `${e.clientX - 10}px`;
-        boundary.style.top = `${e.clientY - 10}px`;
+        createGlow(e.x, e.y);
     });
 
-    // Use event delegation to handle dynamic and nested clickable elements
-    document.addEventListener('mouseover', (e) => {
-        if (e.target.closest('.clickable') || e.target.hasAttribute('onclick')) {
-            boundary.classList.add('hovered');
-        }
-    });
-
-    document.addEventListener('mouseout', (e) => {
-        if (e.target.closest('.clickable') || e.target.hasAttribute('onclick')) {
-            boundary.classList.remove('hovered');
-        }
-    });
+    animate(); // Start the animation loop
 
 </script>
 
